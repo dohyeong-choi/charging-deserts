@@ -1,0 +1,179 @@
+Introduction
+    Nationwide welfare gain, Existing Charging Network to Population-Center Expansion (pp)           0.647
+    Strategic Network Expansion over Population-Center Expansion (pp)                                0.068
+    Strategic Network + Autonomy over Strategic Network Expansion (pp)                               4.6
+    Population-center gain relative to the Interstate Highway System value of 3.6 percent (%)        18
+    Population-center gain relative to the Interstate Highway System value of 1.1 percent (%)        59
+    Strategic-station gain relative to the Interstate Highway System value of 1.1 percent (%)        6.2
+    Autonomy gain relative to the Interstate Highway System value of 3.6 percent (times)             1.3
+    Autonomy gain relative to the Interstate Highway System value of 1.1 percent (times)             4.2
+
+Section 3
+    Mean intrastate trade flow (USD billion)                                                         164.7
+    Mean intrastate distance (miles)                                                                 138
+    Mean interstate trade flow (USD billion)                                                         2.9
+    Mean interstate distance (miles)                                                                 1,214
+    Electric energy cost as share of diesel fuel cost, lowest region (%)                             31
+    Electric energy cost as share of diesel fuel cost, highest region (%)                            51
+    Per-mile cost advantage of driver-operated electric trucks, average of regions (%)               18
+    Per-mile cost advantage of driver-operated electric trucks, lowest region (%)                    13
+    Per-mile cost advantage of driver-operated electric trucks, highest region (%)                   23
+    Break-even detour relative to the diesel route, lowest region (%)                                15.4
+    Break-even detour relative to the diesel route, highest region (%)                               29.5
+    Per-mile cost advantage of autonomous electric trucks, average of regions (%)                    58
+    Ratio of the autonomous to the driver-operated advantage                                         3.2
+
+Section 5.1
+    Coefficient on log freight cost                                                                  -0.545
+    Coefficient on contiguity                                                                        1.218
+    Trade increase implied by contiguity (%)                                                         238
+    Coefficient on intrastate trade                                                                  2.918
+    Trade increase implied by intrastate trade (times)                                               17.5
+
+Section 5.2
+    Interstate origin-destination pairs                                                              2,256
+    East-West pairs                                                                                  814
+    Western states                                                                                   11
+    States east of the Rockies                                                                       37
+    Charging-feasible pairs, Existing Charging Network                                               168
+    Feasible East-West pairs, Existing Charging Network                                              0
+    States in a charging-feasible pair, Existing Charging Network                                    17
+    Disjoint charging-feasible systems, Existing Charging Network                                    2
+    Western system                                                                                   Arizona, California, Colorado, Utah
+    States in the eastern system                                                                     13
+    Charging-feasible pairs, Population-Center Expansion                                             1,404
+    Feasible East-West pairs, Population-Center Expansion                                            0
+    Eastern states reaching all 36 other eastern states, Population-Center Expansion                 37
+    Feasible pairs involving Idaho or New Mexico, Population-Center Expansion                        0
+    Other western states reaching exactly the other eight, Population-Center Expansion               9
+    Charging-feasible pairs, Strategic Network Expansion                                             2,162
+    Feasible East-West pairs, Strategic Network Expansion                                            740
+    States other than Idaho reaching all 46 other such states, Strategic Network Expansion           47
+    Infeasible pairs not involving Idaho, Strategic Network Expansion                                0
+
+Section 5.3
+    Baseline interstate truck-served exports (USD trillion)                                          6.5
+    Connected reach in the eastern system, lowest state (USD trillion)                               1.84
+    Connected reach in the eastern system, highest state (USD trillion)                              2.14
+    Connected reach in the western system, lowest state (USD trillion)                               0.25
+    Connected reach in the western system, highest state (USD trillion)                              0.59
+    States that reach no other state, Existing Charging Network                                      31
+    Connected reach of eastern states, lowest, Population-Center Expansion (USD trillion)            5.16
+    Western states connected for the first time, Population-Center Expansion                         Montana, Nevada, Oregon, Washington, Wyoming
+    Connected reach of the nine western states, highest, Population-Center Expansion (USD trillion)  0.95
+    Adopted reach of western states, highest, Population-Center Expansion (USD trillion)             0.69
+    Adopted reach of eastern states, lowest, Population-Center Expansion (USD trillion)              3.83
+    Adopting pairs, Existing Charging Network                                                        158
+    Feasible share of interstate trade, Existing Charging Network (%)                                16.2
+    Adopting share of interstate trade, Existing Charging Network (%)                                15.4
+    Feasible share of interstate trade, Population-Center Expansion (%)                              83.4
+    Adopting share of interstate trade, Population-Center Expansion (%)                              79.6
+    Feasible share of interstate trade, Strategic Network Expansion (%)                              98.6
+    Adopting share of interstate trade, Strategic Network Expansion (%)                              92.0
+    Feasible share of interstate trade, Strategic Network + Autonomy (%)                             98.6
+    Adopting share of interstate trade, Strategic Network + Autonomy (%)                             98.5
+    Wisconsin-Alabama diesel route (miles)                                                           860
+    Wisconsin-Alabama charging-feasible route, Existing Charging Network (miles)                     1,110
+    Wisconsin-Alabama detour relative to the diesel route (%)                                        29
+    Wisconsin-Alabama directions feasible but on diesel, Existing Charging Network                   2
+    Alabama-Kansas diesel route (miles)                                                              790
+    Alabama-Kansas charging-feasible route, Population-Center Expansion (miles)                      1,090
+    Alabama-Kansas detour relative to the diesel route (%)                                           38
+    Alabama-Kansas directions feasible but on diesel, Population-Center Expansion                    2
+
+Section 5.4
+    East-West pairs infeasible, Strategic Network Expansion                                          74
+    Of which not involving Idaho                                                                     0
+    Feasible pairs involving Idaho, Strategic Network Expansion                                      0
+    Increase in connected reach of New Mexico (USD trillion)                                         6.5
+    Largest increase in connected reach among all states (USD trillion)                              6.5
+    Increase in connected reach of the other nine western states, lowest (USD trillion)              5.5
+    Increase in connected reach of the other nine western states, highest (USD trillion)             5.5
+    Connected reach of Washington, Population-Center Expansion (USD trillion)                        0.9
+    Connected reach of Washington, Strategic Network Expansion (USD trillion)                        6.4
+    Adopted reach of Washington, Population-Center Expansion (USD trillion)                          0.6
+    Adopted reach of Washington, Strategic Network Expansion (USD trillion)                          0.7
+    Adopted reach of Washington, Strategic Network + Autonomy (USD trillion)                         6.4
+    Pairs newly feasible under the Strategic Network Expansion                                       758
+    Of which adopting electric trucking                                                              482
+    Share adopting (%)                                                                               64
+    Non-adopting new pairs involving Washington, Oregon, Montana, or Wyoming (%)                     78
+    Montana-Nebraska diesel route (miles)                                                            990
+    Montana-Nebraska charging-feasible route, Strategic Network Expansion (miles)                    1,380
+    Montana-Nebraska detour relative to the diesel route (%)                                         39
+    Montana-Nebraska directions newly feasible but on diesel, Strategic Network Expansion            2
+    New pairs adopting electric trucking, Strategic Network + Autonomy                               754
+    New pairs not adopting, Strategic Network + Autonomy                                             4
+    Of which involving North Dakota                                                                  4
+    Montana-North Dakota diesel route (miles)                                                        740
+    Montana-North Dakota charging-feasible route (miles)                                             1,940
+    Montana-North Dakota ratio of charging-feasible to diesel route                                  2.6
+    Montana-North Dakota directions feasible but on diesel, Strategic Network + Autonomy             2
+
+Section 5.5
+    California-New York route status, Population-Center Expansion                                    0
+    California-New York route status, Strategic Network Expansion                                    2
+    Baseline trade on newly feasible pairs (USD billion)                                             990
+    Share of baseline interstate trade (%)                                                           15.2
+    Newly feasible trade between two non-host states (%)                                             68.5
+    Newly feasible pairs between two non-host states (%)                                             75.7
+    Newly feasible trade originating in the four host states (%)                                     16.3
+    Newly feasible trade originating in California (%)                                               28.6
+    State originating the largest share of newly feasible trade                                      California
+    Largest exporting state                                                                          California
+    Largest exporting state's share of interstate exports (%)                                        6.4
+    States reachable from California, Population-Center Expansion                                    8
+    California's interstate exports newly connected (%)                                              67.5
+    Newly feasible pairs involving Idaho                                                             0
+
+Section 5.6
+    Transition (a): nationwide welfare gain (pp)                                                     0.647
+    States connected for the first time                                                              29
+    Of the ten largest welfare increases, states connected for the first time                        10
+    States with welfare losses                                                                       Colorado, Idaho, Utah
+    Trade-weighted fall in own freight costs, Colorado (%)                                           1.7
+    Trade-weighted fall in own freight costs, Idaho (%)                                              0.0
+    Trade-weighted fall in own freight costs, Utah (%)                                               0.8
+    Trade-weighted fall in freight costs, all interstate pairs (%)                                   9.5
+    Utah's three largest interstate markets                                                          Idaho, California, Nevada
+    Utah's routes to California and Nevada that are feasible but remain on diesel                    2
+    Fall in the freight cost of Oregon to California (%)                                             23
+    Fall in the freight cost of California to Nevada (%)                                             23
+    Change in Utah's shipments to California (%)                                                     -0.58
+    Change in Utah's shipments to Nevada (%)                                                         -4.44
+    Transition (b): nationwide welfare gain (pp)                                                     0.068
+    Largest welfare increase                                                                         New Mexico
+    Welfare increase of that state (pp)                                                              1.33
+    Export increase of that state (pp)                                                               8.8
+    Next five largest welfare increases                                                              Arizona, Colorado, California, Utah, Nevada
+    Additional feasible partners of Washington                                                       38
+    Of which adopting electric trucking                                                              1
+    Trade-weighted fall in own freight costs, Washington (%)                                         0.0008
+    Welfare change of Washington (pp)                                                                -0.028
+    Welfare change of Delaware (pp)                                                                  -0.058
+    Share of the aggregate welfare gain received by the four host states (%)                         27.3
+    Share accruing elsewhere (%)                                                                     72.7
+    Delaware's three largest interstate markets                                                      Pennsylvania, Ohio, New Jersey
+    Change in Delaware's shipments to Pennsylvania (USD million)                                     -23.9
+    Change in western states' shipments to Pennsylvania (USD million)                                938.3
+    Change in Delaware's shipments to Ohio (USD million)                                             -4.3
+    Change in western states' shipments to Ohio (USD million)                                        900.8
+    Change in Delaware's shipments to New Jersey (USD million)                                       -14.9
+    Change in western states' shipments to New Jersey (USD million)                                  703.0
+    Transition (c): nationwide welfare gain (pp)                                                     4.616
+    States with welfare losses                                                                       Idaho
+    Smallest welfare increase among the other states (pp)                                            2.0
+    Largest welfare increase among the other states (pp)                                             9.5
+    Welfare increase of Delaware (pp)                                                                9.5
+    Share of expenditure sourced from other states, Delaware                                         0.73
+    Welfare increase of Rhode Island (pp)                                                            8.3
+    Share of expenditure sourced from other states, Rhode Island                                     0.76
+    Welfare increase of California (pp)                                                              2.0
+    Share of expenditure sourced from other states, California                                       0.22
+    Welfare increase of Texas (pp)                                                                   2.5
+    Share of expenditure sourced from other states, Texas                                            0.28
+    Welfare change of Idaho, Existing Charging Network (%)                                           -0.01
+    Welfare change of Idaho, Population-Center Expansion (%)                                         -0.08
+    Welfare change of Idaho, Strategic Network Expansion (%)                                         -0.13
+    Welfare change of Idaho, Strategic Network + Autonomy (%)                                        -0.54
+    Idaho's exports and imports fall in all four scenarios (1 = yes)                                 1

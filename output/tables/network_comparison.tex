@@ -1,0 +1,63 @@
+\begin{table}[!htbp]
+\centering
+\caption{Network Development, Route Distances, and Variable Cost Savings Across Charging Scenarios}
+\label{tab:network_development}
+\footnotesize
+\setlength{\tabcolsep}{2pt}
+
+\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}lccccc@{}}
+\hline
+\hline
+& \multicolumn{3}{c}{Connectivity} & \multicolumn{2}{c}{Adoption} \\
+\cmidrule(lr){2-4}\cmidrule(lr){5-6}
+Scenario
+& \begin{tabular}[b]{@{}c@{}}Feasible\\pairs\end{tabular}
+& \begin{tabular}[b]{@{}c@{}}Trade\\share (\%)\end{tabular}
+& \begin{tabular}[b]{@{}c@{}}East--West\\pairs\end{tabular}
+& \begin{tabular}[b]{@{}c@{}}Adopting\\pairs\end{tabular}
+& \begin{tabular}[b]{@{}c@{}}Trade\\share (\%)\end{tabular} \\
+\hline
+\multicolumn{6}{@{}l}{\textit{Panel A: Connectivity and adoption}} \\
+Existing Charging Network    & 168   & 16.2 & 0   & 158   & 15.4 \\
+Population-Center Expansion  & 1,404 & 83.4 & 0   & 1,309 & 79.6 \\
+Strategic Network Expansion  & 2,162 & 98.6 & 740 & 1,797 & 92.0 \\
+Strategic Network + Autonomy & 2,162 & 98.6 & 740 & 2,154 & 98.5 \\
+\hline
+\end{tabular*}
+
+\vspace{8pt}
+
+\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}lcccccccc@{}}
+\hline
+& & \multicolumn{4}{c}{Route distance (miles)} & & \multicolumn{2}{c}{\begin{tabular}[b]{@{}c@{}}Variable cost\\saving per trip\end{tabular}} \\
+\cmidrule(lr){3-6}\cmidrule(lr){8-9}
+Scenario
+& Pairs
+& \begin{tabular}[b]{@{}c@{}}Electric\\mean\end{tabular}
+& \begin{tabular}[b]{@{}c@{}}Electric\\std.\ dev.\end{tabular}
+& \begin{tabular}[b]{@{}c@{}}Electric\\max\end{tabular}
+& \begin{tabular}[b]{@{}c@{}}Diesel\\mean\end{tabular}
+& \begin{tabular}[b]{@{}c@{}}Detour\\ratio\end{tabular}
+& (\$) & (\%) \\
+\hline
+\multicolumn{9}{@{}l}{\textit{Panel B: Adopting pairs}} \\
+Existing Charging Network    & 158   & 610   & 364   & 1,380 & 592   & 1.02 & 176   & 13.7 \\
+Population-Center Expansion  & 1,309 & 895   & 457   & 2,180 & 842   & 1.05 & 219   & 12.5 \\
+Strategic Network Expansion  & 1,797 & 1,222 & 750   & 4,030 & 1,105 & 1.08 & 237   & 11.2 \\
+Strategic Network + Autonomy & 2,154 & 1,393 & 893   & 4,300 & 1,191 & 1.13 & 1,350 & 52.5 \\
+\hline
+\multicolumn{9}{@{}l}{\textit{Panel C: Feasible pairs remaining on diesel}} \\
+Existing Charging Network    & 10    & 1,210 & 255   & 1,500 & 796   & 1.53 & $\llap{$-$}$322 & $\llap{$-$}$19.2 \\
+Population-Center Expansion  & 95    & 1,185 & 469   & 2,460 & 786   & 1.53 & $\llap{$-$}$334 & $\llap{$-$}$21.2 \\
+Strategic Network Expansion  & 365   & 2,259 & 1,039 & 4,300 & 1,607 & 1.44 & $\llap{$-$}$486 & $\llap{$-$}$16.1 \\
+Strategic Network + Autonomy & 8     & 2,443 & 496   & 3,180 & 805   & 3.21 & $\llap{$-$}$411 & $\llap{$-$}$30.2 \\
+\hline
+\hline
+\end{tabular*}
+
+\vspace{0.5em}
+\begin{minipage}{\textwidth}
+\footnotesize
+\textit{Notes:} There are 2,256 interstate state pairs. A pair is \emph{feasible} when an electrically feasible route exists under the charging network of the scenario, irrespective of relative operating cost, and \emph{adopting} when electric or autonomous electric trucking is also cheaper than diesel. In Panel A, trade shares report the percentage of baseline interstate truck-served trade on links in the corresponding category, and East--West pairs are the feasible pairs among the 814 pairs linking a western state to a state east of the Rockies. Panels B and C summarize adopting pairs and feasible pairs that continue to ship by diesel. Electric route distance is the shortest charging-feasible route and diesel distance the least-cost road route between the population centers of the two states; the detour ratio is the electric distance divided by the diesel distance of the pair. The variable cost of a trip is the route distance multiplied by the ATRI marginal operating cost per mile, which reflects 2022 operating costs, of the technology in the origin state's region (Subsection~\ref{subsec:cfl_scenarios}), and the saving is the diesel cost less the electric or autonomous electric cost. Detour ratios and savings are averaged over pairs. In Panel C the savings are negative: the charging-feasible route would raise the variable cost of the trip, and these pairs remain on diesel. The Strategic Network Expansion and Strategic Network + Autonomy share the same charging network and hence have identical connectivity.
+\end{minipage}
+\end{table}

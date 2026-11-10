@@ -1,0 +1,31 @@
+\begin{table}[H]
+\centering
+\caption{Gravity Estimation Results}
+\label{tab:gravity_aggregate}
+\begin{threeparttable}
+\begin{tabular}{l>{\hspace{3em}}c}
+\hline\hline
+Variable & \\
+\hline
+$\log(t_{ijt})$ & $\llap{$-$}$0.545 \\
+                 & (0.038) \\
+$C_{ij}$        & 1.218 \\
+                 & (0.065) \\
+$H_{ij}$         & 2.918 \\
+                 & (0.082) \\
+ & \\
+Exporter $\times$ Time FE    & $\checkmark$ \\
+Importer $\times$ Time FE    & $\checkmark$ \\
+Observations                 & 6,912 \\
+Pseudo $R^2$                 & 0.966 \\
+\hline\hline
+ 
+\end{tabular}
+
+\begin{tablenotes}[online,flushleft]
+    \small
+    \item \textit{Notes:} Estimation of equation \eqref{eq:gravity_est} by PPML. $t_{ijt}$ is the trucking cost of shipping from $i$ to $j$, equal to the least-cost diesel route distance multiplied by the ATRI marginal operating cost per mile in the origin state's region; $C_{ij}$ is an indicator variable for contiguous borders, and $H_{ij}$ is an indicator for intrastate trade (observations for which $i=j$). Standard errors clustered at the bilateral pair level. All estimates are significant at the $p<0.01$ level.
+ \end{tablenotes}
+ 
+\end{threeparttable}
+\end{table}

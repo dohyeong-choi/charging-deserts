@@ -1,0 +1,49 @@
+state,name,abbreviation,fips,atri_region,west,strategic_host
+ALABAMA,Alabama,AL,1,Southeast,0,0
+ARIZONA,Arizona,AZ,4,West,1,1
+ARKANSAS,Arkansas,AR,5,Southeast,0,0
+CALIFORNIA,California,CA,6,West,1,0
+COLORADO,Colorado,CO,8,West,1,1
+CONNECTICUT,Connecticut,CT,9,Northeast,0,0
+DELAWARE,Delaware,DE,10,Northeast,0,0
+FLORIDA,Florida,FL,12,Southeast,0,0
+GEORGIA,Georgia,GA,13,Southeast,0,0
+IDAHO,Idaho,ID,16,West,1,0
+ILLINOIS,Illinois,IL,17,Midwest,0,0
+INDIANA,Indiana,IN,18,Midwest,0,0
+IOWA,Iowa,IA,19,Midwest,0,0
+KANSAS,Kansas,KS,20,Midwest,0,1
+KENTUCKY,Kentucky,KY,21,Southeast,0,0
+LOUISIANA,Louisiana,LA,22,Southeast,0,0
+MAINE,Maine,ME,23,Northeast,0,0
+MARYLAND,Maryland,MD,24,Northeast,0,0
+MASSACHUSETTS,Massachusetts,MA,25,Northeast,0,0
+MICHIGAN,Michigan,MI,26,Midwest,0,0
+MINNESOTA,Minnesota,MN,27,Midwest,0,0
+MISSISSIPPI,Mississippi,MS,28,Southeast,0,0
+MISSOURI,Missouri,MO,29,Midwest,0,0
+MONTANA,Montana,MT,30,West,1,0
+NEBRASKA,Nebraska,NE,31,Midwest,0,0
+NEVADA,Nevada,NV,32,West,1,0
+NEW_HAMPSHIRE,New Hampshire,NH,33,Northeast,0,0
+NEW_JERSEY,New Jersey,NJ,34,Northeast,0,0
+NEW_MEXICO,New Mexico,NM,35,Southwest,1,0
+NEW_YORK,New York,NY,36,Northeast,0,0
+NORTH_CAROLINA,North Carolina,NC,37,Southeast,0,0
+NORTH_DAKOTA,North Dakota,ND,38,Midwest,0,0
+OHIO,Ohio,OH,39,Midwest,0,0
+OKLAHOMA,Oklahoma,OK,40,Southwest,0,0
+OREGON,Oregon,OR,41,West,1,0
+PENNSYLVANIA,Pennsylvania,PA,42,Northeast,0,0
+RHODE_ISLAND,Rhode Island,RI,44,Northeast,0,0
+SOUTH_CAROLINA,South Carolina,SC,45,Southeast,0,0
+SOUTH_DAKOTA,South Dakota,SD,46,Midwest,0,0
+TENNESSEE,Tennessee,TN,47,Southeast,0,0
+TEXAS,Texas,TX,48,Southwest,0,1
+UTAH,Utah,UT,49,West,1,0
+VERMONT,Vermont,VT,50,Northeast,0,0
+VIRGINIA,Virginia,VA,51,Southeast,0,0
+WASHINGTON,Washington,WA,53,West,1,0
+WEST_VIRGINIA,West Virginia,WV,54,Southeast,0,0
+WISCONSIN,Wisconsin,WI,55,Midwest,0,0
+WYOMING,Wyoming,WY,56,West,1,0

@@ -2,174 +2,99 @@
 
 Taejun Mo, Dohyeong Choi, Yilan Xu, and William Ridley (University of Illinois Urbana-Champaign)
 
-> **Status (draft, 2026-11-08).** The folder structure and the final datasets on hand are in place. The analysis code, the table/figure code and the remaining final datasets are still to be added. Items marked **[TODO]** are open.
-
 ## Overview
 
-The paper maps heavy-duty electric-truck charging stations onto the U.S. road network, computes charging-feasible routes between state population centers under four charging-network configurations, and embeds the resulting route- and technology-specific freight costs in a structural gravity model to simulate effects on trade and welfare.
+The code reproduces Tables 1, 3, 4, and A1 to A7, Figures 4 to 6 and A1 to A3, and the numbers reported in the text. It starts from truck flows in the Freight Analysis Framework, diesel and charging-feasible route distances between states, and published per-mile operating costs. Figures 1 to 3 are maps drawn in QGIS and are included as files in `output/figures`. Table 2 defines the scenarios and uses no data.
 
-**Scope of this package.** The package starts from the **final analysis datasets**:
+## Software
 
-- `data/`: final datasets, including bilateral route distances and freight costs by scenario, and trade flows (see [Dataset list](#dataset-list)).
-- `code/01_analysis/`: gravity estimation and general-equilibrium counterfactuals. **[TODO]**
-- `code/02_tables_figures/`: code that writes every table to `output/tables/` and every figure to `output/figures/`. **[TODO]**
-- `output/`: tables and figures. Figures 1–3 are provided as static files (see below).
+- Stata 17 or later with `ftools`, `reghdfe`, `ppmlhdfe`, and `ge_gravity2`. `run_all.do` installs missing packages from SSC. The results were produced with StataNow 19 SE, ftools 2.37.0, reghdfe 5.7.3, ppmlhdfe 2.2.0, and ge_gravity2 3.0.
+- Python 3 with the standard library only. Tested with Python 3.12.10.
+- R with dplyr, ggplot2, cowplot, patchwork, scales, sf, usmap, usmapdata, maps, and ragg. Tested with R 4.3.2 (dplyr 1.1.4, ggplot2 3.5.2, cowplot 1.2.0, patchwork 1.3.2, scales 1.3.0, sf 1.0.20, usmap 0.7.0, usmapdata 0.2.1, maps 3.4.2, ragg 1.2.5).
 
-The geospatial analysis that produced the route distances is **not** part of the package. It covered station selection, road-network distances, and charging-feasible routing. The route distances it produced are provided as final data in `data/od_scenario_combined_all_atri2022.csv`. Its map outputs (Figures 1–3) are included as static files in `output/figures/`.
+The code draws no random numbers.
 
-## Data Availability and Provenance Statements
+## Running the code
 
-### Statement about Rights
+Set the working directory to this folder and run the three steps in order.
 
-- [ ] I certify that the author(s) of the manuscript have legitimate access to and permission to use the data used in this manuscript.
-- [ ] I certify that the author(s) of the manuscript have documented permission to redistribute/publish the data contained within this replication package. Appropriate permissions are documented in the LICENSE.txt file.
+1. In Stata, `do run_all.do`
+2. `python code/5_tables.py`
+3. `Rscript code/6_figures.R`
 
-### License for Data
+Step 1 takes about ten seconds and step 3 about three minutes. Stata logs are written to `output/logs`.
 
-**[TODO: choose a license (e.g. CC-BY 4.0) and add LICENSE.txt.]**
-
-### Summary of Availability
-
-- [ ] All data **are** publicly available.
-- [ ] Some data **cannot be made** publicly available.
-- [ ] **No data can be made** publicly available.
-
-**[TODO: tick once all final datasets are in.]**
-
-### Final datasets
-
-| File (in `data/`) | Content | Underlying sources | Provided |
-|---|---|---|---|
-| `od_scenario_combined_all_atri2022.csv` | Diesel and charging-feasible EV route distances, per-mile and total freight costs, connectivity/adoption indicators, by directed state pair and scenario | AFDC, NHS, Census COP (distances); ATRI, EIA (costs) | Yes |
-| `trade_value_2012_2017_2022.csv` | Bilateral trade values, million 2022 USD | FAF5, FAF6 | Yes |
-| **[TODO: gravity estimation sample, cost series, …]** | | | |
-
-### Provenance of the route distances
-
-The authors computed the bilateral route distances in `od_scenario_combined_all_atri2022.csv` with QGIS 3.44 (QNEAT3 plugin) and Python (NetworkX), from these public sources:
-
-- **Alternative Fuels Data Center (AFDC), NREL / U.S. DOE.** Electric charging stations downloaded on 2025-11-30 from https://developer.nrel.gov/api/alt-fuel-stations/v1.json (83,578 stations). Heavy-duty stations (`maximum_vehicle_class = 'HD'`) within 1.1 miles of the contiguous-U.S. NHS: 106. Public domain.
-- **National Highway System (NHS), USDOT BTS, National Transportation Atlas Database.** https://geodata.bts.gov/datasets/usdot::national-highway-system-nhs/about, downloaded November 2025. Public domain.
-- **2020 state centers of population, U.S. Census Bureau.** https://www.census.gov/geographies/reference-files/time-series/geo/centers-population.html. Public domain.
-
-The procedure is summarized in Section 3.2 of the paper:
-
-- Each state's center of population is its node.
-- Nodes are connected when their shortest NHS road distance is at most 400 miles.
-- Dijkstra's algorithm finds the shortest charging-feasible path.
-- Under the Existing Charging Network, only states with a heavy-duty station within 50 miles of their center of population can be an origin or destination.
-
-### Provenance of the remaining data
-
-**[TODO: for each source give the name, URL, version/vintage, access date, files used, and redistribution terms.]** These include at least:
-
-- Freight Analysis Framework (FAF5 for 2012 and 2017; FAF6 for 2022), U.S. DOT BTS / FHWA.
-- American Transportation Research Institute (ATRI), *An Analysis of the Operational Costs of Trucking* (various years).
-- U.S. EIA, 2022 state commercial electricity prices.
-- SimpleMaps U.S. Cities Database (Basic v1.93), if the intrastate distances are part of the final data. Its license does not allow redistributing the database itself; derived distances should be checked against the license.
-
-## Dataset list
-
-### `od_scenario_combined_all_atri2022.csv`
-
-2,304 rows = 48 × 48 directed state pairs in the contiguous U.S. (same-state rows have missing distances).
-
-| Column | Meaning |
+| Script | Creates |
 |---|---|
-| `origin_id`, `destination_id` | Origin / destination state name |
-| `key_i`, `key_j` | Upper-case state names (merge keys) |
-| `Total_i` | Diesel per-mile operating cost in the origin's ATRI region, 2022 ($/mi) |
-| `Total_ev_i_dr` | Driver-operated electric truck per-mile cost ($/mi) |
-| `Total_ev_i` | Autonomous electric truck per-mile cost ($/mi; excludes driver wages and benefits) |
-| `dist` | Diesel Baseline road distance $D_{fuel}$ (miles, rounded to nearest 10) |
-| `gas_cost` | `dist × Total_i` |
-| `hd50_endpoint` | 1 if both states' centers of population have a heavy-duty charging station within 50 miles |
-| `dist_400mi_realhd50`, `dist_400mi_cop`, `dist_400mi_cop_s3` | Charging-feasible EV route distance (miles, rounded to nearest 10; missing = no feasible route) under the Existing Charging Network ($D_{real}$), Population-Center Expansion ($D_{POP}$) and Strategic Network Expansion ($D_{STR}$) |
-| `ev_cost_dr_400mi_*` / `ev_cost_400mi_*` | EV distance × driver / autonomous EV per-mile cost |
-| `ev_choose_dr_400mi_*` / `ev_choose_400mi_*` | 1 if the EV total cost is below the diesel total cost |
-| `indicator_dr_400mi_*` / `indicator_400mi_*` | 0 = no feasible route; 1 = feasible but diesel cheaper; 2 = electric adopted |
+| `code/0_faf_extract.do` | `data/raw/faf/*.csv` from the original FAF files |
+| `code/1_trade_flows.do` | `data/derived/trade_flows.csv` |
+| `code/2_freight_costs.do` | `data/derived/freight_rates.csv`, `data/derived/freight_costs.csv` |
+| `code/3_gravity.do` | `data/derived/gravity_sample.csv`, `gravity_estimates.csv`, `counterfactual_states.csv`, `counterfactual_pairs.csv` |
+| `code/4_text_numbers.do` | `output/text_numbers.txt` |
+| `code/5_tables.py` | `output/tables/*.tex` |
+| `code/6_figures.R` | `output/figures/*.png` |
 
-Scenario mapping: Existing Charging Network = `*_dr_400mi_realhd50`; Population-Center Expansion = `*_dr_400mi_cop`; Strategic Network Expansion = `*_dr_400mi_cop_s3`; Strategic Network + Autonomy = `*_400mi_cop_s3` (no `_dr`).
+`run_all.do` runs scripts 1 to 4.
 
-### `trade_value_2012_2017_2022.csv`
+## Data
 
-**[TODO: confirm definitions.]**
+The inputs are in `data/raw`.
 
-| Column | Meaning |
+| File | Contents | Source |
+|---|---|---|
+| `faf/faf5_2012.csv` | 2012 shipment value, million 2017 dollars | FAF5.7.1 Reprocessed 1997-2012 State database |
+| `faf/faf5_2017.csv` | 2017 shipment value, and 2022 value in 2017 and current dollars | FAF5.7.1 State database |
+| `faf/faf6_2022.csv` | 2022 shipment value, million 2022 dollars | FAF6.0 State database |
+| `route_distances.csv` | Diesel and charging-feasible electric route distances between states, in miles | Authors' routing on the National Highway System |
+| `atri_regional_costs_2022.csv` | 2022 marginal operating cost per mile by cost item and ATRI region | ATRI, An Analysis of the Operational Costs of Trucking: 2023 Update, Table 13 |
+| `atri_national_costs.csv` | National fuel cost and total marginal cost per mile, 2012-2024 | ATRI, annual Operational Costs of Trucking reports |
+| `eia_electricity_prices_2022.csv` | 2022 average retail electricity price to the commercial sector by state, cents per kWh | EIA, Electric Power Annual 2022, Table 2.10 |
+| `cpi_u.csv` | CPI-U annual averages, 2012-2024 | BLS |
+| `states.csv` | State identifiers, FIPS codes, ATRI regions, the 11 western states, and the four states hosting the strategic stations | |
+| `contiguity.csv` | Pairs of states that share a border | |
+
+The three FAF files keep the original columns for truck shipments (`dms_mode` = 1) of domestic trade (`trade_type` = 1) between the 48 contiguous states. To recreate them, download `FAF5.7.1_State.zip` and `FAF5.7.1_Reprocessed_1997-2012_State.zip` from https://www.bts.gov/faf/faf5 and `FAF6.0_State.zip` from https://www.bts.gov/faf, place the unzipped CSV files in `data/raw/faf_original`, and run `do code/0_faf_extract.do` from this folder.
+
+`route_distances.csv` gives the diesel route distance (`dist_fuel`) and the charging-feasible electric route distance under the Existing Charging Network (`dist_real`), the Population-Center Expansion (`dist_pop`), and the Strategic Network Expansion (`dist_str`). Interstate distances are rounded to the nearest 10 miles. For pairs with the same origin and destination, `dist_fuel` is the intrastate distance. Electric route distances are blank for intrastate pairs and for pairs without a charging-feasible route.
+
+The route distances were computed with QGIS 3.44 (QNEAT3 plugin) and Python (NetworkX) by the procedure in Section 3.2 of the paper, using four sources.
+
+- Electric charging stations from the Alternative Fuels Data Center (National Renewable Energy Laboratory and U.S. Department of Energy), downloaded on November 30, 2025 from https://developer.nrel.gov/api/alt-fuel-stations/v1.json.
+- The National Highway System from the National Transportation Atlas Database (Bureau of Transportation Statistics), downloaded in November 2025 from https://geodata.bts.gov/datasets/usdot::national-highway-system-nhs/about.
+- The 2020 state centers of population from the U.S. Census Bureau, https://www.census.gov/geographies/reference-files/time-series/geo/centers-population.html.
+- The United States Cities Database, Basic Version 1.93, from SimpleMaps, https://simplemaps.com/data/us-cities. The intrastate distance is based on the two most populous cities in each state. The database is not included.
+
+## Tables, figures, and numbers in the text
+
+| Paper | File in `output` |
 |---|---|
-| `origin_id`, `destination_id` | Origin / destination state name |
-| `intrastate` | 1 if origin = destination |
-| `value_2012_mil2022usd`, `value_2017_mil2022usd`, `value_2022_mil2022usd` | Bilateral trade value, million 2022 USD |
+| Table 1 | `tables/sum_stat.tex` |
+| Table 3 | `tables/estimation.tex` |
+| Table 4 | `tables/network_comparison.tex` |
+| Table A1 | `tables/atri_fuel_series.tex` |
+| Table A2 | `tables/energy_cost_regional.tex` |
+| Tables A3 to A7 | `tables/exports_perc.tex`, `tables/imports_perc.tex`, `tables/welfare_perc.tex`, `tables/exports_value.tex`, `tables/imports_value.tex` |
+| Figure 1 | `figures/basemap.pdf` |
+| Figure 2 | `figures/OD400_REAL.pdf`, `figures/OD400_COP.pdf`, `figures/OD400_COP_s3.pdf`, `figures/OD400_Legends.pdf` |
+| Figure 3 | `figures/detour_real.pdf`, `figures/detour_pop.pdf`, `figures/detour_str.pdf`, `figures/detour_str_auto.pdf` |
+| Figure 4 | `figures/combined_connection_adoption.png` |
+| Figure 5 | `figures/new_feasible_trade_share_hosts_exporter_labeled.png` |
+| Figure 6 | `figures/combined_results_maps_welfare_inc_2x2.png` |
+| Figure A1 | `figures/combined_results_maps_perc.png` |
+| Figure A2 | `figures/combined_results_maps_dollar.png` |
+| Figure A3 | `figures/combined_results_maps_welfare_4x2.png` |
+| Numbers in the text | `text_numbers.txt`, listed by section |
 
-**[TODO: variable lists for the remaining final datasets.]**
+## Derived data
 
-## Computational requirements
+States are identified by upper-case names with underscores, as in `states.csv`. Trade values are in millions of 2022 dollars.
 
-### Software Requirements
+- `trade_flows.csv`: `year`, `origin`, `destination`, and `trade`, truck-served domestic shipments for 2012, 2017, and 2022.
+- `freight_rates.csv`: per-mile costs by ATRI region. `electricity_price` is in cents per kWh, `energy_ev` is the electricity cost per mile at 2 kWh per mile, and `fuel`, `wages`, and `benefits` are ATRI cost items. `rate_fuel`, `rate_ev_dr`, and `rate_ev_ndr` are the per-mile costs of diesel, driver-operated electric, and autonomous electric trucks.
+- `freight_costs.csv`: for each state pair, route distances (`dist_*`, miles), trip costs (`cost_*`, dollars), and route status by scenario (`status_*`: 0 = no charging-feasible route, 1 = feasible but diesel is cheaper, 2 = electric trucking adopted).
+- `gravity_sample.csv`: the estimation sample, with `trade`, the diesel trip cost `cost_fuel`, and the indicators `contiguous` and `intrastate`.
+- `gravity_estimates.csv`: PPML coefficients and standard errors, number of observations, pseudo R-squared, and number of clusters.
+- `counterfactual_states.csv`: for each `theta`, `scenario`, and `state`, the percent changes in real exports, real imports, and welfare relative to the Diesel Baseline (`exports_pct`, `imports_pct`, `welfare_pct`), the changes in real exports and imports in millions of 2022 dollars (`exports_diff`, `imports_diff`), and the equivalent variation in millions of 2022 dollars (`welfare_diff`), equal to `welfare_pct` / 100 times the state's 2022 expenditure on truck-served shipments from all states including itself.
+- `counterfactual_pairs.csv`: for each `theta`, `scenario`, and state pair, baseline trade (`trade`) and counterfactual nominal trade (`trade_cf`).
 
-**[TODO: list the software (e.g. Stata/R/Python) and package versions used in `code/`, and provide a setup script.]**
-
-### Controlled Randomness
-
-**[TODO]**
-
-- [ ] Random seed is set at line ___ of program ___
-- [ ] No pseudo-random number generator is used.
-
-### Memory, Runtime, Storage Requirements
-
-**[TODO: runtime and machine description.]**
-
-## Description of programs/code
-
-- `code/01_analysis/`: gravity estimation (PPML with exporter-time and importer-time fixed effects) and general-equilibrium counterfactual simulations (θ = 4.14, with sensitivity runs at 2.79 and 4.46). **[TODO: file list and master script]**
-- `code/02_tables_figures/`: writes the tables and figures listed below to `output/`. **[TODO: file list and master script]**
-
-### License for Code
-
-**[TODO: choose MIT/BSD/GPL and add LICENSE.txt.]**
-
-## Instructions to Replicators
-
-1. Install the software listed above. **[TODO]**
-2. Run the master script in `code/01_analysis`. **[TODO: name]**
-3. Run the master script in `code/02_tables_figures`. **[TODO: name]**
-4. Tables and figures appear in `output/tables/` and `output/figures/`.
-
-## List of tables and programs
-
-The provided code reproduces:
-
-- [ ] All numbers provided in text in the paper
-- [ ] All tables and figures in the paper
-- [x] Selected tables and figures in the paper, as explained below
-
-| Figure/Table | Program | Output file | Note |
-|---|---|---|---|
-| Table 1 | **[TODO]** | `output/tables/sum_stat.tex` | Summary statistics |
-| Table 2 | — | — | Scenario definitions; no data |
-| Table 3 | **[TODO]** | `output/tables/estimation.tex` | Gravity estimates |
-| Table 4 | **[TODO]** | `output/tables/network_comparison.tex` | Network development across scenarios |
-| Figure 1 | not reproduced | `output/figures/basemap.pdf` | Static map from the geospatial analysis |
-| Figure 2 | not reproduced | `output/figures/OD400_REAL.png`, `OD400_COP.png`, `OD400_COP_s3.png`, `OD400_legends.png` | Static maps from the geospatial analysis |
-| Figure 3 | not reproduced | `output/figures/detour_real.pdf`, `detour_pop.pdf`, `detour_str.pdf`, `detour_str_auto.pdf` | Static maps from the geospatial analysis |
-| Figure 4 | **[TODO]** | `output/figures/combined_connection_adoption.png` | |
-| Figure 5 | **[TODO]** | `output/figures/new_feasible_trade_share_hosts_exporter_labeled.png` | |
-| Figure 6 | **[TODO]** | `output/figures/combined_results_maps_welfare_inc_2x2.png` | |
-| Figures A1–A3 | **[TODO]** | `output/figures/combined_results_maps_{perc,dollar,welfare_4x2}.png` | |
-| Tables A1–A2 | **[TODO]** | `output/tables/atri_fuel_series.tex`, `energy_cost_regional.tex` | |
-| Tables A3–A7 | **[TODO]** | `output/tables/{exports,imports,welfare}_perc.tex`, `{exports,imports}_value.tex` | |
-
-## References
-
-National Renewable Energy Laboratory (NREL). 2025. "Alternative Fuels Data Center Station Locator API (v1)." U.S. Department of Energy. https://developer.nrel.gov/docs/transportation/alt-fuel-stations-v1/ (accessed November 30, 2025).
-
-U.S. Department of Transportation, Bureau of Transportation Statistics. 2025. "National Highway System (NHS)." National Transportation Atlas Database. https://geodata.bts.gov/datasets/usdot::national-highway-system-nhs/about (accessed November 2025).
-
-U.S. Census Bureau. 2021. "Centers of Population Computation for the United States, 1950–2020." https://www2.census.gov/geo/pdfs/reference/cenpop2020/COP2020_documentation.pdf
-
-**[TODO: FAF, ATRI, EIA and any other data references.]**
-
-## Acknowledgements
-
-This README follows the template of the Social Science Data Editors (https://social-science-data-editors.github.io/template_README/).
+Scenario codes are `real` (Existing Charging Network), `pop` (Population-Center Expansion), `str` (Strategic Network Expansion), and `auto` (Strategic Network + Autonomy). The trade elasticity `theta` is 4.14 in the main results and 2.79 and 4.46 in the L and H columns of the appendix tables.
