@@ -33,7 +33,7 @@ exports_bln <- trade %>%
 
 states <- usmap::us_map(regions = "states") %>%
   rename(STUSPS = abbr, NAME = full) %>%
-  filter(!STUSPS %in% c("AK", "HI", "DC"))
+  filter(!STUSPS %in% c("AK", "HI", "DC", "PR"))
 states <- st_transform(states, crs = "+proj=aea +lat_1=29.5 +lat_2=45.5 +lat_0=37.5 +lon_0=-96 +datum=NAD83")
 states <- st_make_valid(states)
 us_outline <- st_union(states)

@@ -1,0 +1,39 @@
+# Core latex/pdflatex aux files
+*.aux
+*.lof
+*.log
+*.lot
+*.fls
+*.out
+*.toc
+*.fmt
+*.fot
+*.cb
+*.cb2
+*.lb
+
+# Latex in Vs code
+*.fdb_latexmk
+
+# Bibliography aux files
+*.bbl
+*.bcf
+*.blg
+*.xml
+*.bib
+
+# Synctex
+*.synctex.gz
+
+# PDF (선택 사항: 소스만 관리하려면 제외하는 것이 좋음)
+*.pdf
+
+# Symbolic Links
+text/
+
+# claude paths
+/.claude/
+
+
+# 개인 환경 설정 및 스크립트 무시
+__pycache__/
